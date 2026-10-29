@@ -156,3 +156,18 @@ h1, h2, h3 { line-height: 1.2; overflow-wrap: anywhere; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Web sign-up */
+.signup { gap: 14px; }
+.signup > label { font-size: 16px; }
+.party-picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 8px; }
+.party-option { position: relative; }
+.party-option input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.party-option span { display: grid; place-items: center; height: 52px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; transition: background-color 150ms var(--ease), border-color 150ms var(--ease); }
+.party-option input:checked + span { background: var(--brand); border-color: var(--brand); color: white; }
+.party-option input:focus-visible + span { outline: 3px solid var(--brand); outline-offset: 2px; }
+.party-input { width: 100%; min-height: 52px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 12px; font-size: 18px; }
+.form-error { color: var(--red); font-size: 14px; font-weight: 600; }
+.my-ticket { text-align: center; justify-items: center; }
+.my-ticket > span { color: var(--muted); font-size: 14px; }
+.my-ticket strong { font-size: 40px; line-height: 1.1; color: var(--brand); font-variant-numeric: tabular-nums; }

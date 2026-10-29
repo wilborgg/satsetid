@@ -19,8 +19,10 @@ class QueueController extends Controller
             ->header('Cache-Control', 'private, no-store')->header('Referrer-Policy', 'no-referrer');
     }
 
-    public function status(QueueTicket $ticket, QueueService $queueService)
+    public function status(Request $request, QueueTicket $ticket, QueueService $queueService)
     {
+        // Background polling must not consume a flash message meant for the next page.
+        $request->session()->reflash();
         $ticket->load('restaurant');
         $position = $queueService->calculateCustomerPosition($ticket);
 

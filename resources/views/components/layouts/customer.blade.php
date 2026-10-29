@@ -11,8 +11,8 @@
     <link rel="apple-touch-icon" href="{{ asset('icons/icon-192.png') }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/satset.css') }}?v=ui-6">
-    <script src="{{ asset('js/customer.js') }}?v=ui-6" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/satset.css') }}?v=ui-9">
+    <script src="{{ asset('js/customer.js') }}?v=ui-9" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#main">Lewati navigasi</a>

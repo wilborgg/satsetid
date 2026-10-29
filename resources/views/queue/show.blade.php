@@ -1,6 +1,8 @@
 @php
     $messages = [
-        'waiting' => 'Tunggu dengan nyaman. Pembaruan antrean dikirim melalui WhatsApp.',
+        'waiting' => $ticket->phone_number
+            ? 'Tunggu dengan nyaman. Pembaruan antrean dikirim melalui WhatsApp.'
+            : 'Tunggu dengan nyaman. Simpan atau bookmark halaman ini, karena posisi antrean diperbarui di sini secara otomatis.',
         'called' => 'Giliran Anda sudah tiba. Silakan menuju staf outlet.',
         'ended' => 'Antrean ini sudah berakhir. Terima kasih sudah menggunakan SatSet.',
     ];
@@ -30,5 +32,5 @@
             <form class="center" method="post" action="{{ route('queue.cancel', $ticket->public_token) }}" data-ticket-cancel onsubmit="return confirm('Batalkan antrean ini?')">@csrf<button class="button button-ghost-danger" type="submit">Batalkan antrean</button></form>
         @endif
     </section>
-    <script src="{{ asset('js/queue-poll.js') }}?v=ui-6" defer></script>
+    <script src="{{ asset('js/queue-poll.js') }}?v=ui-9" defer></script>
 </x-layouts.customer>

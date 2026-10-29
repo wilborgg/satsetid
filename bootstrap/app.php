@@ -14,6 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo(fn () => route('admin.login'));
 
+        // Local tunnels (cloudflared) forward HTTPS traffic to http://localhost; trust their
+        // X-Forwarded-* headers so generated asset/form URLs keep https. Only loopback is trusted.
+        $middleware->trustProxies(at: ['127.0.0.1', '::1']);
+
         $middleware->alias([
             'admin.active' => \App\Http\Middleware\EnsureAdminIsActive::class,
         ]);
