@@ -58,6 +58,8 @@ class RestaurantSeeder extends Seeder
             if (app()->environment('local', 'testing') && $restaurant->queueTickets()->count() === 0) {
                 for ($i = 1; $i <= $sampleQueue; $i++) {
                     QueueTicket::query()->create([
+                        // Seeders run without model events, so the token is not generated automatically.
+                        'public_token' => (string) Str::uuid(),
                         'restaurant_id' => $restaurant->id,
                         'customer_name' => "Sample Customer {$i}",
                         'phone_number' => '6281234500'.str_pad((string) $i, 2, '0', STR_PAD_LEFT),

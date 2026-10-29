@@ -58,3 +58,5 @@ Homestead.yaml
 /.tmp-edge/
 AGENTS.md
 skills-lock.json
+# Paket upload hosting (berisi .env produksi)
+/_deploy/
